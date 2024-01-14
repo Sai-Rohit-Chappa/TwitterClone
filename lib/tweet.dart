@@ -1,65 +1,82 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Tweet extends StatelessWidget {
-  const Tweet({super.key});
-
+class Tweet extends StatefulWidget {
+  const Tweet({super.key, required this.content});
+  final String content;
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(),
-        body: Container(
-          height: 700,
-          width: double.infinity,
-          padding: EdgeInsets.all(20),
-          child: Column(
+  State<Tweet> createState() => _TweetState();
+}
+
+class _TweetState extends State<Tweet> {
+  @override
+  Widget build(
+    BuildContext context,
+  ) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 5),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                radius: 30.0,
+              const CircleAvatar(
+                radius: 22.0,
                 // backgroundImage:
                 //     NetworkImage('https://via.placeholder.com/150'),
                 backgroundColor: Colors.blue,
               ),
-                  
-                  Container(
-                    padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              Container(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Row(
                       children: [
-                        Row(
-                          children: [
-                            Text(
-                              'Rohit',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              '@chappa_sai',
-                            )
-                          ],
+                        Text(
+                          'Rohit',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15),
                         ),
-                        Container(
-                          constraints:
-                              BoxConstraints(maxHeight: 230, maxWidth: 270),
-                          child: Text("edk  lbcdjbjkgfedighkgfhcvjhjdbdbjhv"),
+                        SizedBox(width: 4),
+                        Text(
+                          '@chappa_sai',
                         )
                       ],
                     ),
-                  )
-                ],
-              ),
-              SizedBox(height: 10), 
-              Divider(
-                height: 1,
-                thickness: 0.5,
+                    Container(
+                      constraints:
+                          const BoxConstraints(maxHeight: 230, maxWidth: 270),
+                      child: Text(widget.content),
+                    ),
+                    const SizedBox(height: 10),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.abc),
+                        SizedBox(width: 50),
+                        Icon(Icons.abc),
+                        SizedBox(width: 50),
+                        Icon(Icons.abc),
+                        SizedBox(width: 50),
+                        Icon(Icons.abc),
+                      ],
+                    ),
+                  ],
+                ),
               )
-              ,Image.network("https://cdn-icons-png.flaticon.com/512/2919/2919906.png")
             ],
           ),
-        ));
+        ),
+
+        const SizedBox(height: 15),
+
+        const Divider(
+          height: 1,
+          thickness: 0.5,
+        )
+        // )
+      ],
+    );
   }
 }
