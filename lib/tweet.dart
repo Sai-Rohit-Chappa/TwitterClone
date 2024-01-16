@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:like_button/like_button.dart';
 
 class Tweet extends StatefulWidget {
   const Tweet({super.key, required this.content});
@@ -50,16 +51,16 @@ class _TweetState extends State<Tweet> {
                       child: Text(widget.content),
                     ),
                     const SizedBox(height: 10),
-                    const Row(
+                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.abc),
+                        SvgPicture.asset('assets/retweet.svg'),
                         SizedBox(width: 50),
-                        Icon(Icons.abc),
+                        SvgPicture.asset('assets/comment.svg'),
                         SizedBox(width: 50),
-                        Icon(Icons.abc),
+                        LikeButton(size: 20),
                         SizedBox(width: 50),
-                        Icon(Icons.abc),
+                        SvgPicture.asset('assets/delete.svg',height: 15,width: 15,),
                       ],
                     ),
                   ],
